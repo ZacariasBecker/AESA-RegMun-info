@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import styles from './styles.module.css';
 
@@ -8,24 +8,29 @@ import Item from '../components/item/Item';
 
 const Home = () => {
 
-  // function handleString(text) {
-  //   text = text.toLowerCase();
-  //   text = text.replace(new RegExp('[ÁÀÂÃ]', 'gi'), 'a');
-  //   text = text.replace(new RegExp('[ÉÈÊ]', 'gi'), 'e');
-  //   text = text.replace(new RegExp('[ÍÌÎ]', 'gi'), 'i');
-  //   text = text.replace(new RegExp('[ÓÒÔÕ]', 'gi'), 'o');
-  //   text = text.replace(new RegExp('[ÚÙÛ]', 'gi'), 'u');
-  //   text = text.replace(new RegExp('[ç]', 'gi'), 'c');
-  //   return text;
-  // }
+  const [textInput, setTextInput] = useState('');
+
+  function handleString(text) {
+    text = text.toLowerCase();
+    text = text.replace(new RegExp('[ÁÀÂÃ]', 'gi'), 'a');
+    text = text.replace(new RegExp('[ÉÈÊ]', 'gi'), 'e');
+    text = text.replace(new RegExp('[ÍÌÎ]', 'gi'), 'i');
+    text = text.replace(new RegExp('[ÓÒÔÕ]', 'gi'), 'o');
+    text = text.replace(new RegExp('[ÚÙÛ]', 'gi'), 'u');
+    text = text.replace(new RegExp('[ç]', 'gi'), 'c');
+    return text;
+  }
 
   return (
     <div className={styles.container}>
-      {DATA.map(item => {
-        return (
-          <Item props={item} />
-        );
-      })}
+      <div className={styles.content}>
+        <input type="text" onChange={e => setTextInput(handleString(e.target.value))} className={styles.textInput} placeholder="município" />
+        {DATA.filter(item => handleString(item.municipio.toLowerCase()).includes(textInput)).map(item => {
+          return (
+            <Item props={item} />
+          );
+        })}
+      </div>
     </div>
   );
 };

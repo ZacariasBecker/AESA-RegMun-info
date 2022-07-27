@@ -1,5 +1,27 @@
 .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: rgb(34, 67, 82);
-  color: aliceblue;
+  color: rgb(240, 240, 240);
   height: 100%;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 900px;
+}
+
+.textInput {
+  font-size: 1.3rem;
+  align-self: center;
+  padding: 0.5rem;
+  margin: 1rem;
+  border-radius: 2rem;
+  outline: none;
+  border: 0;
+  width: 70%;
 }
