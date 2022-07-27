@@ -3,15 +3,24 @@
 .content {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding-left: 1rem;
   padding-right: 1rem;
-  align-items: center;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .sigMun {
   display: flex;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.container:nth-child(odd) {
+  background-color: rgb(46, 92, 116);
+  border-radius: 1rem;
 }
 
 .sigMun p {
   margin-right: 1rem;
+  font-size: 1.2rem;
 }
