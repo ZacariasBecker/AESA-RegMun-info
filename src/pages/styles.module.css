@@ -1,1 +1,5 @@
-.container {}
+.container {
+  background-color: rgb(34, 67, 82);
+  color: aliceblue;
+  height: 100%;
+}
